@@ -1,0 +1,13 @@
+
+.myadsParentDiv .myadsheading{
+    position: absolute;
+    margin-top: 4%;
+    font-size: 3rem;
+    font-weight: 900;
+    padding-left: 12px;
+    color: #002f34;
+}
+.myadsParentDiv .card{
+    margin-top: 10%;
+    left: 5%;
+}
