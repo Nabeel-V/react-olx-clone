@@ -36,7 +36,7 @@ function App() {
             <Login />
           </Route>
           <Route path="/create">
-    {user ? <Create /> : <Login/>
+    {user ? <Create /> : <Login/>}
           </Route>
           <Route path="/view">
             <ViewPost />
