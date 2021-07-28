@@ -6,7 +6,7 @@ import Login from "./Pages/Login";
 import Create from "./Pages/Create";
 import ViewPost from "./Pages/ViewPost";
 import Myads from './Pages/Myads'
-import { AuthContext, FirebaseContext } from "./Store/Context";
+import { AuthContext, FirebaseContext, user } from "./Store/Context";
 import Post from "./Store/PostCotext";
 
 /**
@@ -36,7 +36,7 @@ function App() {
             <Login />
           </Route>
           <Route path="/create">
-            <Create />
+    {user ? <Create /> : <Login/>
           </Route>
           <Route path="/view">
             <ViewPost />
