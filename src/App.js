@@ -6,7 +6,7 @@ import Login from "./Pages/Login";
 import Create from "./Pages/Create";
 import ViewPost from "./Pages/ViewPost";
 import Myads from './Pages/Myads'
-import { AuthContext, FirebaseContext, user } from "./Store/Context";
+import { AuthContext, FirebaseContext } from "./Store/Context";
 import Post from "./Store/PostCotext";
 
 /**
@@ -15,7 +15,7 @@ import Post from "./Store/PostCotext";
 import Home from "./Pages/Home";
 
 function App() {
-  const { setUser } = useContext(AuthContext);
+  const { setUser, user } = useContext(AuthContext);
   const { firebase } = useContext(FirebaseContext);
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
