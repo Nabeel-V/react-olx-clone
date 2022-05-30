@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import {FirebaseContext } from "../../Store/Context";
 import "./Myads.css";
 
 function Posts() {
   const { firebase } = useContext(FirebaseContext);
   const [myAds, setMyAds] = useState([]);
+  const myRef = useRef(null);
 
   
 
@@ -40,13 +41,18 @@ function Posts() {
           console.log("Document successfully deleted!");
         })
   }
+  
+  
+  const handleTop = () => {
+     myRef.current.scrollIntoView();
+  };
 
   return (
     <div className="myadsParentDiv">
       <div className="myadsheading">
         <span>Myads</span>
       </div>
-      <div className="cards">
+      <div className="cards" ref={myRef}>
         {myAds.map((product) => {
           return (
             <div className="card">
@@ -67,6 +73,29 @@ function Posts() {
               <div className="date">
                 <span>{product.createdAt}</span>
               </div>
+  <div className="image">
+                <img src={product.url} alt="loading...." />
+              </div>
+              <div className="content">
+                <p className="rate">&#x20B9; {product.price}</p>
+                <span className="kilometer">{product.category}</span>
+                <p className="name">{product.name}</p>
+              </div>
+              <div className="date">
+                <span>{product.createdAt}</span>
+              </div>
+  <div className="image">
+                <img src={product.url} alt="loading...." />
+              </div>
+              <div className="content">
+                <p className="rate">&#x20B9; {product.price}</p>
+                <span className="kilometer">{product.category}</span>
+                <p className="name">{product.name}</p>
+              </div>
+              <div className="date">
+                <span>{product.createdAt}</span>
+              </div>
+  <button onClick={() => handleTop()}>Go to top </button>
             </div>
           );
         })}
